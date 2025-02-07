@@ -74,17 +74,32 @@ const displayMovements = function (movements) {
     containerMovements.insertAdjacentHTML('afterbegin', html)
   });
 };
-displayMovements(account1.movements)
+displayMovements(account1.movements);
+
+const createUsernames = function (accs) {
+  accs.forEach(function (acc) {
+    acc.username = acc.owner
+  
+  .toLowerCase().split(' ').map(name =>
+    name[0]
+  ).join('');
+  
+    })
+};
+createUsernames(accounts);
+console.log(accounts);
+
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
 
-const currencies = new Map([
-  ['USD', 'United States dollar'],
-  ['EUR', 'Euro'],
-  ['GBP', 'Pound sterling'],
-]);
+//const currencies = new Map([
+// ['USD', 'United States dollar'],
+// ['EUR', 'Euro'],
+// ['GBP', 'Pound sterling'],
+//);
+//
 /*
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
@@ -206,5 +221,18 @@ movements.forEach(function (mov, i, arr) {
    console.log(`Movement ${i + 1}: You withdraw ${Math.abs(mov)}`);
  }
 });
+
+// For each with map and sets
+
+const currencies = new Map([['USD', 'United States doller'], ['EUR', 'Euro'], ['GBP', 'Pound sterling'],]);
+currencies.forEach(function (value, key, map) {
+  console.log(`${key}: ${value}`);
+});
+
+// Set 
+const currenciesUnique = new Set(['USD', 'GBD', 'USD', 'EUR', 'EUR']);
+console.log(currenciesUnique);
+currenciesUnique.forEach(function (value, _, map) {
+  console.log(`${value}: ${value}`);
+});
 */
- 
